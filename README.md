@@ -29,6 +29,11 @@ cd selenium-basic-auth-tests
 pip install -r requirements.txt
 ```
 
+3. Install pre-commit hooks (for development):
+```bash
+pre-commit install
+```
+
 ## Running the Tests
 
 To run all tests with verbose output:
@@ -62,14 +67,30 @@ python -m unittest basicauth.py -v
 
 - **selenium**: Web automation framework
 - **webdriver-manager**: Automatic ChromeDriver management
+- **pre-commit**: Git hook scripts for code quality checks
+
+## Development
+
+This project uses pre-commit hooks to ensure code quality. The hooks will automatically run:
+- Code formatting with Black
+- Import sorting with isort
+- Linting with flake8
+- Removal of unused imports with autoflake
+- Basic file checks (trailing whitespace, etc.)
+
+To run pre-commit manually on all files:
+```bash
+pre-commit run --all-files
+```
 
 ## Project Structure
 
 ```
 selenium-basic-auth-tests/
-├── basicauth.py         # Main test file
-├── requirements.txt     # Python dependencies
-└── README.md           # This file
+├── .pre-commit-config.yaml  # Pre-commit configuration
+├── basicauth.py            # Main test file
+├── requirements.txt        # Python dependencies
+└── README.md              # This file
 ```
 
 ## Notes
